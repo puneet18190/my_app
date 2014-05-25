@@ -41,4 +41,4 @@ gem 'debugger', group: [:development, :test]
 gem 'haml-rails'
 gem "twitter-bootstrap-rails"
 gem 'devise'
-
+gem 'omniauth-facebook'
