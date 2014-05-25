@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="584519015">
+    <data-source source="LOCAL" name="Rails my_app: development" uuid="37296b1f-8d80-4d21-93cf-640b18738fe1">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:dev_my_app</jdbc-url>
+      <user-name>puneet</user-name>
+      <user-password>dfdadfdfdfc4dfcfdfcfdfde</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails my_app: test" uuid="67675b49-ef27-4ff1-9809-5e371110fb1f">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:test_my_app</jdbc-url>
+      <user-name>puneet</user-name>
+      <user-password>dfdadfdfdfc4dfcfdfcfdfde</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails my_app: production" uuid="443fea9e-c937-4233-83fd-ff3ff81f6865">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:pro_my_app</jdbc-url>
+      <user-name>puneet</user-name>
+      <user-password>dfdadfdfdfc4dfcfdfcfdfde</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+
