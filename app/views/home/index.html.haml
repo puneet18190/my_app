@@ -1,4 +1,84 @@
-%h1 Welcome #{current_user.email}
--if @data
-  = @data['name']
-  %image{:src => @data['image']}/
+.navbar.navbar-inverse
+  .navbar-inner
+    .container-fluid
+      %a.brand{:href => "#"}
+        %small
+          %i.icon-leaf
+          My App
+      %ul.nav.ace-nav.pull-right
+        %li.light-blue.user-profile
+          %a.user-menu.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+            %img.nav-user-photo{:alt => "Jason's Photo", :src => "assets/avatars/user.jpg"}/
+            %span#user_info
+              %small Welcome,
+              #{current_user.email}
+            %i.icon-caret-down
+          %ul#user_menu.pull-right.dropdown-menu.dropdown-yellow.dropdown-caret.dropdown-closer
+            %li
+              %a{:href => "#"}
+                %i.icon-cog
+                Settings
+            %li
+              %a{:href => "#"}
+                %i.icon-user
+                Profile
+            %li.divider
+            %li
+              %a{:href => destroy_user_session_path, "data-method" => "delete"}
+                %i.icon-off
+                Logout
+      / /.ace-nav
+    / /.container-fluid
+  / /.navbar-inner
+/ /.navbar
+#main-container.container-fluid
+  %a#menu-toggler{:href => "#"}
+    %span
+  / menu toggler
+
+  #main-content.clearfix{:style => "margin-left:0"}
+    #breadcrumbs
+      %ul.breadcrumb
+        %li
+          %i.icon-home
+          %a{:href => "#"} Home
+          %span.divider
+            %i.icon-angle-right
+        %li.active Index Page
+      / .breadcrumb
+      #nav-search
+        %form.form-search
+          %span.input-icon
+            %input#nav-search-input.input-small.search-query{:autocomplete => "off", :placeholder => "Search ...", :type => "text"}/
+            %i#nav-search-icon.icon-search
+      / #nav-search
+    / #breadcrumbs
+    #page-content.clearfix
+      .row-fluid
+        / PAGE CONTENT BEGINS HERE
+        / PAGE CONTENT ENDS HERE
+      / /row
+    / /#page-content
+    #ace-settings-container
+      #ace-settings-btn.btn.btn-app.btn-mini.btn-warning
+        %i.icon-cog
+      #ace-settings-box
+        %div
+          .pull-left
+            %select#skin-colorpicker.hidden
+              %option{"data-class" => "default", :value => "#438EB9"} #438EB9
+              %option{"data-class" => "skin-1", :value => "#222A2D"} #222A2D
+              %option{"data-class" => "skin-2", :value => "#C6487E"} #C6487E
+              %option{"data-class" => "skin-3", :value => "#D0D0D0"} #D0D0D0
+          %span &nbsp; Choose Skin
+        %div
+          %input#ace-settings-header.ace-checkbox-2{:type => "checkbox"}/
+          %label.lbl{:for => "ace-settings-header"} Fixed Header
+        %div
+          %input#ace-settings-sidebar.ace-checkbox-2{:type => "checkbox"}/
+          %label.lbl{:for => "ace-settings-sidebar"} Fixed Sidebar
+    / /#ace-settings-container
+  / #main-content
+/ /.fluid-container#main-container
+%a#btn-scroll-up.btn.btn-small.btn-inverse{:href => "#"}
+  %i.icon-double-angle-up.icon-only

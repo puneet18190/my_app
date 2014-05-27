@@ -12,4 +12,23 @@
  *
  *= require_tree .
  *= require_self
+ *= require ace.min
+ *= require ace-ie.min
+ *= require ace-responsive.min
+ *= require ace-skins.min
+ *= require bootstrap.min
+ *= require bootstrap-responsive.min
+ *= require bootstrap-timepicker
+ *= require bootstrap_and_overrides
+ *= require chosen
+ *= require colorbox
+ *= require colorpicker
+ *= require datepicker
+ *= require daterangepicker
+ *= require font-awesome.min
+ *= require font-awesome-ie7.min
+ *= require fullcalendar
+ *= require jquery.gritter
+ *= require jquery-ui-1.10.2.custom.min
+ *= require prettify
  */
