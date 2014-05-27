@@ -19,6 +19,7 @@ module MyApp
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    config.serve_static_assets = true
     config.assets.precompile += %w( ace.min.css )
     config.assets.precompile += %w( bootstrap.min.js )
     config.assets.precompile += %w( ace-elements.min.js )
