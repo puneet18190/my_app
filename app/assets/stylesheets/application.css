@@ -12,7 +12,7 @@
  *
  *= require_tree .
  *= require_self
- *= require ace
+ *= require ace.min
  *= require ace-ie.min
  *= require ace-responsive.min
  *= require ace-skins.min
