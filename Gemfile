@@ -42,4 +42,3 @@ gem 'haml-rails'
 gem "twitter-bootstrap-rails"
 gem 'devise'
 gem 'omniauth-facebook'
-gem 'rails_12factor', group: :production
