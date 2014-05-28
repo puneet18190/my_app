@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   #get "/auth/facebook/callback" => 'home#facebook_login'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
+  post 'pusher/auth'
+  post 'send_message' => "home#send_message"
   # You can have the root of your site routed with "root"
    root 'home#index'
 

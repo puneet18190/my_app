@@ -1,0 +1,19 @@
+<textarea id="message" class="form-control" rows="3" cols="10"></textarea>
+<a href="#" id="mybtn" class="btn btn-primary btn-lg active" role="button">Send</a>
+<input type="hidden" id="user_id" value="<%= current_user.id %>" />
+
+<div id="message_area"></div>
+
+<script type="text/javascript">
+
+    $('#mybtn').click(function(){
+        $.ajax({
+            type: 'post',
+            url: 'send_message',
+            data: 'message='+$('#message').val()+'&user_id='+$('#user_id').val(),
+            success: function () {
+
+            }
+        })
+    })
+</script>
