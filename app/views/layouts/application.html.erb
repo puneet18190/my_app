@@ -24,7 +24,12 @@
               var channel = pusher.subscribe('private'<%#= current_user ? current_user.id : 'null' %>);
 
               channel.bind('new_message', function(data) {
-                  $('#message_area').append('<b>'+data.from+'</b>: '+data.body+'<br>')
+                  if($('#status').attr('class') == data.user_id){
+                      var color = "blue";
+                  }else{
+                      var color = "black"
+                  }
+                  $('#message_area').append('<div style=color:'+color+'><b>'+data.from+'</b>: '+data.body+'<br>')
               });
 
               pusher.connection.bind('connecting', function() {
@@ -45,7 +50,7 @@
   <%= javascript_include_tag 'ace.min' %>
 </head>
 <body>
-<div id="status"></div>
+<div id="status" class="<%= signed_in? ? current_user.id : ''%>"></div>
 <!--<nav class="navbar navbar-fluid-top">-->
   <!--<div class="navbar-inner">-->
       <!--<div class="container-fluid">-->

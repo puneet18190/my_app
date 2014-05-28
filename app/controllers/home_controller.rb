@@ -10,7 +10,7 @@ class HomeController < ApplicationController
 
   def send_message
     #Pusher['private-'+params[:user_id]].trigger('new_message', {:from => current_user.email, :body => params[:message]})
-    Pusher['private'].trigger('new_message', {:from => current_user.email, :body => params[:message]})
+    Pusher['private'].trigger('new_message', {:from => current_user.email, :body => params[:message],:user_id => params[:user_id]})
     render :json => {:status => true}
   end
 
