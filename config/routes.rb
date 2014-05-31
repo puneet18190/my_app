@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   post 'pusher/auth'
   post 'send_message' => "home#send_message"
+  post 'test_image' => "home#test_image"
+  get 'get_profile_data' => "home#get_profile_data"
   # You can have the root of your site routed with "root"
    root 'home#index'
 

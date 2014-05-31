@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
+  mount_uploader :avatar, AvatarUploader
+
   def self.find_for_oauth(auth, signed_in_resource = nil)
    user = User.where(:email => auth.info.email).first if auth.info.email
       if user.nil?
