@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!
-  protect_from_forgery :except => [:send_message,:test_image]
+  protect_from_forgery :except => [:send_message,:test_image,:cover_pic]
 
   def index
     @user = current_user
@@ -18,6 +18,7 @@ class HomeController < ApplicationController
   def test_image
     @user = current_user
     @user.update_attribute('avatar',params[:user][:profile_image])
+    @user.update_attribute('cover',params[:user][:cover_image])
     respond_to do |format|
         format.js
     end
@@ -25,6 +26,6 @@ class HomeController < ApplicationController
 
   def get_profile_data
     @user = current_user
-    render :json => {:pic => @user.avatar}.to_json
+    render :json => {:pic => @user.avatar, :cover => @user.cover}.to_json
   end
 end

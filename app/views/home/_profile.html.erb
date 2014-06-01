@@ -7,18 +7,22 @@
         <small>Contact us at puneetgupta18190@gmail.com if you have any questions.</small>
       </div>
       <%= form_for :user, :url => test_image_path, :html => {:multipart => true}, :remote => true do |f| %>
-      <div class="modal-body" style="width: 530px; height: 415px;overflow: hidden">
+      <div class="modal-body" style="width: 530px; height: 300px;overflow: hidden">
         <input type="hidden" value="<%= current_user.id unless current_user.id.nil?%>" id="user_id" />
 
         <div class="panel" style="float: left; width: 200px; height: 170px;">
-          <div>
             <%= f.label :profile_pic, :style => "margin-left: 42px;" %><br />
-            <div class="" style="width: 159px;height: 184px;" id="profile_image">
+            <div class="" style="width: 236px;height: 114px;" id="profile_image">
               <img src='' height=130 width=130 class="img-circle" style="border: 1px solid #CCCCCC;margin-left:28px"/>
               <%= f.file_field :profile_image,:id=>"profile_pic", :style=>"margin: 5px; width: 200px;display:none" %>
               <a class="click_btn" href="#"><b>Click here  </b></a><span class="image_name"></span>
             </div>
-          </div>
+            <%= f.label :cover_pic, :style => "margin-left: 42px;" %><br />
+            <div class="" style="width: 236px;height: 110px;" id="cover_image">
+              <img src='' height=130 width=130 class="cover-circle" style="border: 1px solid #CCCCCC;margin-left:28px"/>
+              <%= f.file_field :cover_image,:id=>"cover_pic", :style=>"margin: 5px; width: 200px;display:none" %>
+              <a class="cover_btn" href="#"><b>Click here  </b></a><span class="cover_name"></span>
+            </div>
         </div>
       </div>
       <div class="modal-footer">
@@ -37,14 +41,18 @@
                 url: '/get_profile_data',
                 success: function(response){
                     $('.img-circle').attr('src',response.pic.avatar.url)
+                    $('.cover-circle').attr('src',response.cover)
                     var name = response.pic.avatar.url.split('/')
                     $('span.image_name').html(name[name.length -1])
+                    var cover = response.cover.split('/')
+                    $('span.cover_name').html(cover[cover.length -1])
                 }
             })
         })
 
 
         $("#profile_pic").change(function(event){
+            $('span.image_name').html($(this).val())
             var preview = $(".img-circle");
             var input = $(event.currentTarget);
             var file = input[0].files[0];
@@ -56,12 +64,31 @@
         reader.readAsDataURL(file);
         });
 
+        $("#cover_pic").change(function(event){
+            $('span.cover_name').html($(this).val())
+            var c_preview = $(".cover-circle");
+            var input = $(event.currentTarget);
+            var file = input[0].files[0];
+            var reader = new FileReader();
+            reader.onload = function(e){
+                image_base64 = e.target.result;
+                c_preview.attr("src", image_base64);
+            };
+            reader.readAsDataURL(file);
+        });
+
         $('.click_btn').click(function () {
             $('#profile_pic').trigger('click');
         })
-        $('#profile_pic').change(function () {
-            $('span.image_name').html($(this).val())
+        $('.cover_btn').click(function () {
+            $('#cover_pic').trigger('click');
         })
+//        $('#profile_pic').change(function () {
+//            $('span.image_name').html($(this).val())
+//        })
+//        $('#cover_pic').change(function () {
+//            $('span.cover_name').html($(this).val())
+//        })
 //    });
 </script>
 

@@ -45,3 +45,4 @@ gem 'omniauth-facebook'
 gem 'pusher'
 gem 'remotipart', '~> 1.2'
 gem 'carrierwave'
+gem "paperclip", "~> 4.1"
